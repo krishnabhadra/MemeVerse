@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page - Meme Hub</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+<body>
+  
+  <!-- Top Bar -->
+  <header>
+    <h1>Meme Hub</h1>
+    <img src="profile-icon.png" alt="Profile" class="profile-icon" id="profileBtn">
+  </header>
+
+  <!-- Main Buttons -->
+  <div class="button-container">
+    <button class="big-btn" onclick="window.location.href='memec.html'">📅 Meme Calendar</button>
+    <button class="big-btn" onclick="window.location.href='memeposting.html'">📝 Meme Posting Platform</button>
+    <button class="big-btn" onclick="window.location.href='memealarm.html'">⏰ Meme Alarm</button>
+    <button class="big-btn" onclick="window.location.href='memechallenges.html'">🎯 Meme Challenges</button>
+    <button class="big-btn" onclick="window.location.href='memepicker.html'">🎲 Meme Picker</button>
+  </div>
+
+  <!-- Profile Side Panel -->
+  <div id="profilePanel" class="profile-panel">
+    <span id="closeProfile">&times;</span>
+    <h2>Your Profile</h2>
+    <p><strong>Name:</strong> <span id="profileName"></span></p>
+    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+    <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+    <p><strong>DOB:</strong> <span id="profileDob"></span></p>
+    <p><strong>Phone:</strong> <span id="profilePhone"></span></p>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

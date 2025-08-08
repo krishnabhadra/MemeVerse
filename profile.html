@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="profile.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+<body>
+     <div class="top-bar">
+    <button class="main-btn" onclick="window.location.href='main.html'">Main</button>
+  </div>
+  <div class="profile-container">
+    <h1>User Profile</h1>
+    <div class="profile-card">
+      <p><strong>Name:</strong> <span id="name"></span></p>
+      <p><strong>Username:</strong> <span id="username"></span></p>
+      <p><strong>Email:</strong> <span id="email"></span></p>
+      <p><strong>Phone:</strong> <span id="phone"></span></p>
+      <p><strong>Date of Birth:</strong> <span id="dob"></span></p>
+    </div>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <script>
+    // Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAaqtNywKxW-SPx8PrQdaEaTzOQarCwhWs",
+      authDomain: "memeverse-b6f60.firebaseapp.com",
+      projectId: "memeverse-b6f60",
+      storageBucket: "memeverse-b6f60.firebasestorage.app",
+      messagingSenderId: "9986306804",
+      appId: "1:9986306804:web:fa33b0437a49f4640824a1",
+      measurementId: "G-Z8MGXGMBZ6"
+    };
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+
+    // Get profile data for logged-in user
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        db.collection("users").doc(user.uid).get()
+          .then((doc) => {
+            if (doc.exists) {
+              let data = doc.data();
+              document.getElementById("name").innerText = data.name || "";
+              document.getElementById("username").innerText = data.username || "";
+              document.getElementById("email").innerText = data.email || "";
+              document.getElementById("phone").innerText = data.phone || "";
+              document.getElementById("dob").innerText = data.dob || "";
+            } else {
+              alert("No profile data found!");
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching profile:", error);
+          });
+      } else {
+        window.location.href = "signup.html"; // Redirect if not logged in
+      }
+    });
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      firebase.auth().signOut().then(() => {
+        window.location.href = "signup.html";
+      });
+    });
+  </script>
+</body>
+</html>

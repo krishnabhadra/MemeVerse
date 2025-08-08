@@ -1,0 +1,58 @@
+/* General body style */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* black bg for lightning effect */
+  color: white;
+  font-family: 'Comic Sans MS', cursive;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Login icon */
+.login-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.login-icon img {
+  width: 40px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 5px yellow);
+  transition: transform 0.2s ease;
+}
+.login-icon img:hover {
+  transform: scale(1.2);
+}
+
+/* Intro text animation */
+.intro-text {
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Lightning effect */
+
+
+/* Glow animation for text */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ff0, 0 0 20px #f0f, 0 0 30px #0ff;
+  }
+  to {
+    text-shadow: 0 0 20px #ff0, 0 0 40px #f0f, 0 0 60px #0ff;
+  }
+}
+
+/* Lightning flash animation */
+@keyframes flash {
+  0%, 90%, 100% { opacity: 0; }
+  92% { opacity: 1; }
+  94% { opacity: 0; }
+  96% { opacity: 1; }
+  98% { opacity: 0; }
+}
