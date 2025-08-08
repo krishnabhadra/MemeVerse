@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(to right, #1f1c2c, #928dab);
+  color: white;
+  padding-top: 50px;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  margin: auto;
+}
+
+button {
+  padding: 10px 20px;
+  background: orange;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: darkorange;
+}
+
+#roastText {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #ffcccb;
+  font-weight: bold;
+}

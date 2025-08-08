@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Savage Meme AI Bot</title>
+  <link rel="stylesheet" href="roastbot.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>RoastMaster 🤖🔥</h1>
+      <div class="controls">
+        <label class="voice-toggle"><input id="voiceToggle" type="checkbox"> Voice</label>
+        <label class="intensity">Intensity
+          <select id="intensity">
+            <option value="mild">Mild</option>
+            <option value="spicy" selected>Spicy</option>
+            <option value="savage">Savage</option>
+          </select>
+        </label>
+        <button id="clearBtn" title="Clear chat">Clear</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="chat" class="chat"></section>
+
+      <form id="askForm" class="askForm" autocomplete="off">
+        <input id="userInput" placeholder="Say something (e.g. 'I failed the quiz')" />
+        <button type="submit">Roast me</button>
+      </form>
+    </main>
+
+    <footer>
+      <p class="muted">Playful roasts only — no hateful / targeted slurs will be generated.</p>
+    </footer>
+  </div>
+
+  <script src="roastbot.js"></script>
+</body>
+</html>

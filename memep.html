@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Post Zone</title>
+    <link rel="stylesheet" href="memep.css">
+</head>
+<body>
+    <header>
+        <h1>😂 Meme Central</h1>
+        <p>Share your funniest moments & vote for the best!</p>
+    </header>
+
+    <!-- Post Meme Form -->
+    <section class="post-section">
+        <h2>Post a Meme</h2>
+        <input type="file" id="memeImage" accept="image/*">
+        <input type="text" id="memeCaption" placeholder="Enter a funny caption">
+        <button onclick="postMeme()">Post Meme</button>
+    </section>
+
+    <!-- Meme of the Day -->
+    <section class="motd-section">
+        <h2>🔥 Meme of the Day</h2>
+        <div id="motd" class="meme-card highlight">
+            <p>No memes yet!</p>
+        </div>
+    </section>
+
+    <!-- All Memes -->
+    <section>
+        <h2>All Memes</h2>
+        <div id="memeContainer" class="meme-grid"></div>
+    </section>
+
+    <script>
+        let memes = [
+            {
+                img: "https://i.imgflip.com/30b1gx.jpg",
+                caption: "Me waiting for the semester to end...",
+                upvotes: 5,
+                moodOff: 1
+            },
+            {
+                img: "https://i.imgflip.com/1bij.jpg",
+                caption: "When you open the assignment file and see 50 questions 😭",
+                upvotes: 10,
+                moodOff: 0
+            }
+        ];
+
+        function renderMemes() {
+            const container = document.getElementById("memeContainer");
+            container.innerHTML = "";
+            memes.forEach((meme, index) => {
+                let memeCard = document.createElement("div");
+                memeCard.className = "meme-card";
+                memeCard.innerHTML = `
+                    <img src="${meme.img}" alt="meme">
+                    <p>${meme.caption}</p>
+                    <div class="buttons">
+                        <button onclick="upvote(${index})">👍 ${meme.upvotes}</button>
+                        <button onclick="moodOff(${index})">😒 ${meme.moodOff}</button>
+                    </div>
+                `;
+                container.appendChild(memeCard);
+            });
+            updateMOTD();
+        }
+
+        function postMeme() {
+            const imageFile = document.getElementById("memeImage").files[0];
+            const caption = document.getElementById("memeCaption").value;
+            if (!imageFile || !caption) {
+                alert("Please add both an image and caption!");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                memes.push({
+                    img: e.target.result,
+                    caption: caption,
+                    upvotes: 0,
+                    moodOff: 0
+                });
+                renderMemes();
+                document.getElementById("memeImage").value = "";
+                document.getElementById("memeCaption").value = "";
+            };
+            reader.readAsDataURL(imageFile);
+        }
+
+        function upvote(index) {
+            memes[index].upvotes++;
+            renderMemes();
+        }
+
+        function moodOff(index) {
+            memes[index].moodOff++;
+            renderMemes();
+        }
+
+        function updateMOTD() {
+            if (memes.length === 0) return;
+            let topMeme = memes.reduce((max, meme) => meme.upvotes > max.upvotes ? meme : max, memes[0]);
+            const motd = document.getElementById("motd");
+            motd.innerHTML = `
+                <img src="${topMeme.img}" alt="MOTD meme">
+                <p>${topMeme.caption}</p>
+                <div class="buttons">
+                    <button disabled>👍 ${topMeme.upvotes}</button>
+                    <button disabled>😒 ${topMeme.moodOff}</button>
+                </div>
+            `;
+        }
+
+        renderMemes();
+    </script>
+</body>
+</html>

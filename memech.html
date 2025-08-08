@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meme Challenger</title>
+  <link rel="stylesheet" href="memech.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Meme Challenger ⚔️</h1>
+      <div class="user-area">
+        <input id="playerName" placeholder="Enter name" maxlength="20">
+        <button id="startBtn">Start Game</button>
+      </div>
+    </header>
+
+    <main id="gameArea" class="hidden">
+      <section class="scorebar">
+        <div>Round: <span id="roundNum">0</span>/<span id="totalRounds">6</span></div>
+        <div>Score: <span id="score">0</span></div>
+      </section>
+
+      <section class="meme-card">
+        <img id="memeImg" src="" alt="meme">
+        <p id="captionHint" class="hint"></p>
+      </section>
+
+      <section id="choices" class="choices"></section>
+
+      <div class="controls">
+        <button id="nextBtn" class="hidden">Next ▶</button>
+        <button id="endBtn" class="hidden">End Game</button>
+      </div>
+
+      <section id="resultBox" class="result hidden">
+        <h2 id="resultText"></h2>
+        <p id="roastText"></p>
+      </section>
+    </main>
+
+    <aside class="leaderboard">
+      <h2>Leaderboard 🏆</h2>
+      <ol id="leaderList"></ol>
+      <button id="clearBoard">Clear Leaderboard</button>
+    </aside>
+  </div>
+
+  <script src="memech.js"></script>
+</body>
+</html>

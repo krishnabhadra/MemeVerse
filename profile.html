@@ -11,9 +11,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 </head>
 <body>
-     <div class="top-bar">
-    <button class="main-btn" onclick="window.location.href='main.html'">Main</button>
-  </div>
   <div class="profile-container">
     <h1>User Profile</h1>
     <div class="profile-card">
@@ -23,9 +20,13 @@
       <p><strong>Phone:</strong> <span id="phone"></span></p>
       <p><strong>Date of Birth:</strong> <span id="dob"></span></p>
     </div>
+    <div class="top-bar">
+       <button class="main-btn" onclick="window.location.href='main.html'">Let the meme begins</button>
+    </div>
+    
     <button id="logoutBtn">Logout</button>
   </div>
-
+   
   <script>
     // Firebase configuration
     var firebaseConfig = {

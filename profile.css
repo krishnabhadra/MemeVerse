@@ -1,46 +1,247 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated background particles */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.05), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.08), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.06), transparent);
+  background-repeat: repeat;
+  background-size: 150px 100px;
+  animation: sparkle 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes sparkle {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-100px); }
 }
 
 .profile-container {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  width: 320px;
+  background: rgba(20, 25, 45, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(255, 215, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  width: 380px;
   text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.profile-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4d9de0, #ff6b6b);
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: borderGlow 3s linear infinite;
+}
+
+.profile-container:hover::before {
+  opacity: 0.3;
+}
+
+.profile-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.7),
+    0 0 60px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 h1 {
-  color: #333;
-  margin-bottom: 20px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.8),
+    0 0 20px rgba(255, 215, 0, 0.6),
+    0 0 30px rgba(255, 215, 0, 0.4);
+  animation: titleGlow 2s ease-in-out infinite alternate;
+  background: linear-gradient(45deg, #ffd700, #ffed4a, #ffd700);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 2s ease-in-out infinite alternate, gradientShift 3s ease infinite;
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 
+      0 0 10px rgba(255, 215, 0, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.6),
+      0 0 30px rgba(255, 215, 0, 0.4);
+  }
+  to {
+    text-shadow: 
+      0 0 20px rgba(255, 215, 0, 1),
+      0 0 30px rgba(255, 215, 0, 0.8),
+      0 0 40px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .profile-card {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateX(5px);
 }
 
 .profile-card p {
-  margin: 8px 0;
-  font-size: 14px;
+  margin: 12px 0;
+  font-size: 16px;
+  color: #e0e0e0;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.profile-card p strong {
+  color: #ffd700;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 button {
-  background: #4CAF50;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 10px 18px;
+  padding: 15px 30px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 10px 20px rgba(102, 126, 234, 0.3),
+    0 0 20px rgba(102, 126, 234, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+button:hover::before {
+  left: 100%;
 }
 
 button:hover {
-  background: #45a049;
+  background: linear-gradient(135deg, #7c9aff 0%, #8a5cbf 100%);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 20px 40px rgba(102, 126, 234, 0.4),
+    0 0 30px rgba(102, 126, 234, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 5px 15px rgba(102, 126, 234, 0.3),
+    0 0 15px rgba(102, 126, 234, 0.2);
+}
+
+/* Custom scrollbar for the page */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #7c9aff, #8a5cbf);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .profile-container {
+    width: 90%;
+    padding: 25px;
+    margin: 20px;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+    letter-spacing: 2px;
+  }
+  
+  .profile-card p {
+    font-size: 14px;
+  }
+  
+  button {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
 }
