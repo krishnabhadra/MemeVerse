@@ -1,9 +1,10 @@
 const roastLines = [
   "Wake up da lazy! Sun already punched your face!",
-  "Entha da? Job interview aano illa dreamil poyi vechu?",
-  "Alarm venamennu thonniyathokke marannu poyille?",
-  "Nee ithrem late ayal moon send request aayalum accept cheyyilla!",
-  "Thamashalla da... Ezhunnella!"
+  "Entha da? Job interview aano illankil dreamil ayoo?",
+  "Alarm vechath marannu poyallee kochu kallan?",
+  "Nee ithrem late ayal ninne aar accept cheyyanaa!",
+  "Thamashalla da thamashallatoo... Ezhunnekeda!",
+  "mathi swapanathile pennonum varan ponnilaaa"
 ];
 
 let alarmTime = null;

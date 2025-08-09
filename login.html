@@ -6,7 +6,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script src="script.js"></script>
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -15,41 +14,71 @@
     <h1>Welcome Back 👋</h1>
     <p class="tagline">Enter your details to join MemeVerse</p>
 
-    <form>
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit"><a href="profile.html">Login</a></button>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="pass" placeholder="Password" required>
+      <button type="submit">Login</button>
     </form>
-     <div id="profile" style="display:none;">
-    <h3 id="nameDisplay"></h3>
-    <img id="photoDisplay" width="150" />
-  </div>
 
-  <script>
-    function login() {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('pass').value;
-
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(userCredential => {
-          const uid = userCredential.user.uid;
-          firebase.firestore().collection("users").doc(uid).get()
-            .then(doc => {
-              if (doc.exists) {
-                document.getElementById("nameDisplay").innerText = doc.data().name;
-                document.getElementById("photoDisplay").src = doc.data().photo;
-                document.getElementById("profile").style.display = "block";
-              }
-            });
-        })
-        .catch(error => {
-          alert(error.message);
-        });
-    }
-  </script>
+    <div id="profile" style="display:none;">
+      <h3 id="nameDisplay"></h3>
+      <img id="photoDisplay" width="150" />
+    </div>
 
     <p class="signup-link">Don’t have an account? <a href="signup.html">Sign Up</a></p>
   </div>
 
+  <script>
+    // ✅ 1. Initialize Firebase (replace with your config)
+    const firebaseConfig = {
+      apiKey: "AIzaSyAaqtNywKxW-SPx8PrQdaEaTzOQarCwhWs",
+      authDomain: "memeverse-b6f60.firebaseapp.com",
+      projectId: "memeverse-b6f60",
+      storageBucket: "memeverse-b6f60.firebasestorage.app",
+      messagingSenderId: "9986306804",
+      appId: "1:9986306804:web:fa33b0437a49f4640824a1",
+      measurementId: "G-Z8MGXGMBZ6"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // ✅ 2. Wait for DOM to load before running code
+    document.addEventListener("DOMContentLoaded", function () {
+      const loginForm = document.getElementById('loginForm');
+
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // prevent form reload
+
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('pass').value.trim();
+
+        firebase.auth().signInWithEmailAndPassword(email, password)
+          .then(userCredential => {
+            const uid = userCredential.user.uid;
+
+            return firebase.firestore().collection("users").doc(uid).get()
+              .then(doc => {
+                if (doc.exists) {
+                  // Display data (optional)
+                  document.getElementById("nameDisplay").innerText = doc.data().name || "";
+                  document.getElementById("photoDisplay").src = doc.data().photo || "";
+                  document.getElementById("profile").style.display = "block";
+
+                  // Redirect after short delay
+                  setTimeout(() => {
+                    window.location.href = `profile.html?uid=${uid}`;
+                  }, 500);
+                } else {
+                  alert("Profile data not found.");
+                }
+              });
+          })
+          .catch(error => {
+            alert("Login failed: " + error.message);
+          });
+      });
+    });
+  </script>
+
 </body>
 </html>
+

@@ -2,7 +2,7 @@
 
 const memeMonths = [
   "Janavari Chill ❄️", "Lovebruary ❤️", "Memech", "April LOLs",
-  "Mayhem", "Jokely", "Jestember", "Onathin August 🌸",
+  "Mayhem", "Johnnee", "Jokely", "Onathin August 🌸",
   "September Sarcasm", "Octoburn 😂", "No-vember", "Memecember 🎄"
 ];
 
@@ -31,18 +31,18 @@ const memeEvents = {
 };
 
 const monthFirstDayMemes = [
-  { message: "🎉 False Hope Begins! Welcome January! 😅", gif: "https://media.giphy.com/media/3o7TKx6lUKeHlUZ8FW/giphy.gif" },
-  { message: "❤️ Love Loading... Hello February!", gif: "https://media.giphy.com/media/xT0GqFzHoqYwi0gU9a/giphy.gif" },
-  { message: "🎝 March of Memes begins!", gif: "https://media.giphy.com/media/5VKbvrjxpVJCM/giphy.gif" },
-  { message: "😂 April Fools Season! Stay Alert!", gif: "https://media.giphy.com/media/l1J3preURPiwjRPvG/giphy.gif" },
-  { message: "🔥 Mayday! Mayday! It’s meme time!", gif: "https://media.giphy.com/media/3orieYp9WjvB2K0y8Q/giphy.gif" },
-  { message: "🌞 June: Sweat + Memes = Perfect Combo", gif: "https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" },
+  { message: "🎉 False Hope Begins! Welcome January! 😅", gif: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXdwYmU2bDJqN3VobDV1Nmw3eGtyaHU3ZHF3OGkwZDc0Yzg4bmh3ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aibKssnIQpxbC7sbI6/giphy.gif" },
+  { message: "❤️ Love Loading... Hello February!", gif: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGd4d2lhZmJzOWRydmUwdjd5YWJnMmVyaHV2ZzNqYmJwOXlveWY0cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5dwCS6G8gKAe7UmGMe/giphy.gif" },
+  { message: "🎝 March of Memes begins!", gif: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXNrejIzdDZwcTIzaG05dWVrcDdtbThqenUxMHM4OWRrYzcyZWdleCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1Aswy7TkiIaqq5KU/giphy.gif" },
+  { message: "😂 April Fools Season! Stay Alert!", gif: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExM201emVuZDRtN2dmM2l6azMzZzlkbDd1djhicXNsaTRxb3oyMTBjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l2R07prvtIz7JsMik/giphy.gif" },
+  { message: "🔥 Mayday! Mayday! It’s meme time!", gif: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnRmeHlycDBvY3h1Y3lqMzg5dHMxdm45OHBkcXp4aHl5bzRqaTAwbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SBzcoCQTYA4py/giphy.gif" },
+  { message: "🌞 June: Sweat + Memes = Perfect Combo", gif: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHEyZXFrM2pvY3lkcjE2bnAzcXgzcXo5bTI3ODR6dno0ZHh5MTFrNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/s5kxuyMgR5y3Q6VDJV/giphy.gif" },
   { message: "🎇 Joking July! Let’s meme more!", gif: "https://media.giphy.com/media/l0ExncehJzexFpRHq/giphy.gif" },
-  { message: "🌸 Onathinte memes ready aano? Welcome August!", gif: "https://media.giphy.com/media/26xBwdIuRJiAiWith6/giphy.gif" },
-  { message: "📋 September – Time to study? Nah, meme.", gif: "https://media.giphy.com/media/3oEduS1U7suTV6L7l2/giphy.gif" },
-  { message: "👻 October = Spook + Joke Combo", gif: "https://media.giphy.com/media/3o7TKRB4bMgT4dVYic/giphy.gif" },
-  { message: "🧣 November: Meme Season Begins!", gif: "https://media.giphy.com/media/3orieYp9WjvB2K0y8Q/giphy.gif" },
-  { message: "🎄 December = Memecember", gif: "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" }
+  { message: "🌸 Onathinte memes ready aano? Welcome August!", gif: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWJ2OXpveDl6M2xtejBvb254ZW9iZXBmNnYyemVmNjFrNGZtenVyeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SWuoqm9k71NI2mlzkt/giphy.gif" },
+  { message: "📋 September – Time to study? Nah, meme.", gif: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm0zcWV3dWsxOXdub21ndXhuY3NuMnBzZjdhN3k3NHhoNGlpOGx2YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Pioie5F9TGKSWxULdF/giphy.gif" },
+  { message: "👻 October = Spook + Joke Combo", gif: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDFkaDc5MmhtaGdkczhhdGlyZWlrdHlndnVjYmh0cHpxZHlqZ3ZmNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7702jh3NsloOseiDUk/giphy.gif" },
+  { message: "🧣 November: Meme Season Begins!", gif: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXg2MWx0MG9zdXF4eDM5ZzFvamsyZGExeDF5N2g4b2cwN2E3bXUxdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dUJb54x5zsQpb5v8Be/giphy.gif" },
+  { message: "🎄 December = Memecember", gif: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXFkaTZ0bDVmamUzN3FsZG9za3oyNXp2ejBrdXh1bTJldG81bTNiayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xULW8qPSIA40uIXi6s/giphy.gif" }
 ];
 
 let currentDate = new Date();
@@ -117,7 +117,7 @@ function showPopup(message, gifUrl = "") {
     ? `<p>${message}</p><img src="${gifUrl}" width="120">`
     : `<p>${message}</p>`;
   popup.style.display = "block";
-  setTimeout(() => popup.style.display = "none", 6000);
+  setTimeout(() => popup.style.display = "none", 20000);
 }
 
 function openModal(key, date, month, year) {
